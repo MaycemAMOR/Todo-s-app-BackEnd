@@ -1,4 +1,4 @@
-package com.mytech.rest.webservices.restfulwebservices;
+package com.mytech.rest.webservices.restfulwebservices.helloworld;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +16,7 @@ public class HelloWorldController {
 
     @GetMapping("/hello-world-bean")
     public HelloWorldBean helloWorldBean() {
+        //throw new RuntimeException("Some Error has Happened! Contact Support at **** - **** - ****");
         return new HelloWorldBean("Hello World");
     }
 
