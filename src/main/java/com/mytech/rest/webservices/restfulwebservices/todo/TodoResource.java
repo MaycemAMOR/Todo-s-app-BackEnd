@@ -17,6 +17,7 @@ public class TodoResource {
 
     @GetMapping("/users/{username}/todos")
     public List<Todo> getAllTodos(@PathVariable String username) {
+        //throw new RuntimeException("Some Error has Happened! Contact Support at **** - **** - ****");
         return HardCodedService.FindByUserName(username);
     }
 }

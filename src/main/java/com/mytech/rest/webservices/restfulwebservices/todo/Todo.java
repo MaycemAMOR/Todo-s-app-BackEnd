@@ -1,5 +1,7 @@
 package com.mytech.rest.webservices.restfulwebservices.todo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Todo {
@@ -52,22 +54,13 @@ public class Todo {
         this.targetDate = targetDate;
     }
 
+    @JsonProperty("isDone")
     public boolean isDone() {
         return isDone;
     }
 
-    public void setDone(boolean done) {
-        isDone = done;
+    public void setDone(boolean isDone) {
+        isDone = isDone;
     }
 
-    @Override
-    public String toString() {
-        return "Todo{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", description='" + description + '\'' +
-                ", targetDate=" + targetDate +
-                ", isDone=" + isDone +
-                '}';
-    }
 }
