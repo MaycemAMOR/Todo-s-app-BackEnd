@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Service
 public class HardCodedService {
 
-    private static List<Todo> todos = new ArrayList<Todo>();
+    private static final List<Todo> todos = new ArrayList<Todo>();
     private static int idcounter = 0;
 
     static {
@@ -40,7 +40,19 @@ public class HardCodedService {
         return todos.stream().filter(todo -> todo.getId() == id && todo.getUsername().equals(username)).findFirst().orElseThrow();
     }
 
-    public void setTodos(List<Todo> todos) {
-        HardCodedService.todos = todos;
+
+    public static Todo FindByUserNameAndId(String username, long id) {
+        return findById(username, id) == null ? null : findById(username, id);
+    }
+
+    public static Todo save(Todo todo) {
+        if (todo.getId() == -1 || todo.getId() == 0) {
+            todo.setId(++idcounter);
+            todos.add(todo);
+        } else {
+            deleteById(todo.getUsername(), todo.getId());
+            todos.add(todo);
+        }
+        return todo;
     }
 }
