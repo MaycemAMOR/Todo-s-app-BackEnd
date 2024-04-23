@@ -29,7 +29,18 @@ public class HardCodedService {
         return todos.stream().filter(todo -> todo.getUsername().equals(username)).collect(Collectors.toList());
     }
 
-    public static void setTodos(List<Todo> todos) {
+    public static Todo deleteById(String username, Long id) {
+        Todo todo = findById(username, id);
+        if (todo == null) return null;
+        if (todos.remove(todo)) return todo;
+        return null;
+    }
+
+    private static Todo findById(String username, Long id) {
+        return todos.stream().filter(todo -> todo.getId() == id && todo.getUsername().equals(username)).findFirst().orElseThrow();
+    }
+
+    public void setTodos(List<Todo> todos) {
         HardCodedService.todos = todos;
     }
 }
