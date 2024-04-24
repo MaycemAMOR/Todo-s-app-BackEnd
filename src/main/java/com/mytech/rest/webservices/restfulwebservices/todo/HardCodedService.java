@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class HardCodedService {
 
     private static final List<Todo> todos = new ArrayList<Todo>();
-    private static int idcounter = 0;
+    private static Long idcounter = 0L;
 
     static {
         todos.add(new Todo(++idcounter, "MayTech", "Lear to Dance", new Date(), false));
